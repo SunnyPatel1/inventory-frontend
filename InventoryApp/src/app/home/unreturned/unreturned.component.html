@@ -1,0 +1,8 @@
+<div class="row" id="wrapper">
+	<div class="titleWrapper">
+		<h2>{{ unreturnedJobs.length }} Unreturned Orders!</h2>
+	</div>
+	<ul>
+		<li *ngFor="let job of unreturnedJobs"><strong>Job ID:</strong> {{job.jobid}}</li>
+	</ul>
+</div>

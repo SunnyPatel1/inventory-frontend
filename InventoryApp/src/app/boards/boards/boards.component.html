@@ -1,0 +1,40 @@
+<h2><strong>Board Types</strong></h2>
+<div class="componentInfoWrapper">
+	<table class="table">
+		<tr>
+			<th>Board Code</th>
+			<th>Description</th>
+			<th>Cost Per Board</th>
+			<th></th>
+		</tr>
+
+		<tr *ngFor = "let board of boards">
+			<td>{{board.boardcode}}</td>
+			<td>{{board.description}}</td>
+			<td>{{board.costperboard}}</td>
+		</tr>
+	</table>
+</div>
+
+<h2><strong>Board Inventory</strong></h2>
+<div class="componentInfoWrapper">
+	<table class="table">
+		<tr>
+			<th>Board Serial Number</th>
+			<th>board Code</th>
+			<th>Manufacturer Date</th>
+			<th>End Of Life Date</th>
+			<th>Job Id</th>
+			<th></th>
+		</tr>
+
+		<tr *ngFor = "let stock of boardInventory;">
+			<td>{{stock.boardsn}}</td>
+			<td>{{stock.boardcode}}</td>
+			<td>{{stock.manufacturedate}}</td>
+			<td>{{stock.eoldate}}</td>
+			<td>{{stock.jobid}}</td>
+			<td><button (click)="deleteComponentInventory(stock.boardsn, stock.boardcode)">Delete</button></td>
+		</tr>
+	</table>
+</div>
