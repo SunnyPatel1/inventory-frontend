@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../data.service';
+import { DataService } from '../data.service';
 import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
@@ -49,11 +49,23 @@ export class ComponentsComponent implements OnInit {
 	}
 
 	onSubmitComponent() {
-		console.log(this.componentForm.value);
+		var max = 0;
+		for (let x of this.components){
+			if (x.componentid <= max) {
+				max = x.componentid
+			}
+		}
+		max = max + 1;
+
+		let formObj = this.componentForm.getRawValue();
+		formObj.id = max;
+
+		console.log(formObj);
+		this.data.addComponent(formObj);
 	}
 
 	onSubmitInventory() {
-		console.log(this.inventoryForm.value);
+		this.data.addComponentInventory(this.inventoryForm.value);
 	}
 
 }

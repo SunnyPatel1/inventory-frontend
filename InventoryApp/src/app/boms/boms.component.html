@@ -1,0 +1,25 @@
+<div class="component-wrapper">
+	<h2><strong>Bill of Materials</strong></h2>
+	<mat-tab-group mat-align-tabs="center" dynamicHeight="true">
+		<mat-tab label="View BOMS">
+			<div class="componentInfoWrapper">
+				<table class="table">
+					<tr>
+						<th>Board Code</th>
+						<th>Component ID</th>
+						<th>Quantity</th>
+					</tr>
+
+					<tr *ngFor = "let b of boms">
+						<td>{{b.boardcode}}</td>
+						<td>{{b.componentid}}</td>
+						<td>{{b.quantity}}</td>
+					</tr>
+				</table>
+			</div>
+		</mat-tab>
+		<mat-tab label="Create New BOM">
+			Create New BOM here!
+		</mat-tab>
+	</mat-tab-group>
+

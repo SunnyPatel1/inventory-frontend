@@ -1,0 +1,40 @@
+<div class="component-wrapper">
+	<h2><strong>Boards</strong></h2>
+	<mat-tab-group mat-align-tabs="center" dynamicHeight="true">
+		<mat-tab label="Review Boards">
+			<div class="componentInfoWrapper">
+				<table class="table" table-align="center">
+					<tr>
+						<th>Manufacturer ID</th>
+						<th>Name</th>
+						<th>Phone</th>
+						<th>Country</th>
+					</tr>
+
+					<tr *ngFor = "let m of manufacturers">
+						<td>{{m.manufacturerid}}</td>
+						<td>{{m.name}}</td>
+						<td>{{m.phone}}</td>
+						<td>{{m.country}}
+					</tr>
+				</table>
+			</div>
+		</mat-tab>
+		<mat-tab label="OnBoard New manufacturer">
+			<form [formGroup]="manuForm" (ngSubmit)="newManufacturer()" class="boardForm">
+				<mat-form-field class="example-full-width">
+					<input matInput placeholder="Manufacturer Name" type="text" formControlName="name"/>
+				</mat-form-field>
+				<mat-form-field class="example-full-width">
+					<input matInput placeholder="Phone" type="phone" formControlName="phone"/>
+				</mat-form-field>
+				<mat-form-field class="example-full-width">
+					<input matInput placeholder="Country" type="text" formControlName="country"/>
+				</mat-form-field>
+				
+				
+				<button mat-button type="submit">Submit</button>
+			</form>
+		</mat-tab>
+	</mat-tab-group>
+</div>

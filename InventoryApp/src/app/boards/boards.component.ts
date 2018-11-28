@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../data.service';
+import { DataService } from '../data.service';
+import { FormControl, FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -10,6 +11,11 @@ import { DataService } from '../../data.service';
 export class BoardsComponent implements OnInit {
 	private boards = [];
 	private boardInventory = [];
+	boardForm = new FormGroup({
+		desc: new FormControl(''),
+		cost: new FormControl('')
+	})
+
 	constructor(private data: DataService) {
 		this.data.getBoards();
 		this.data.getBoardInventory();
@@ -18,6 +24,22 @@ export class BoardsComponent implements OnInit {
 	}
 
 	ngOnInit() {
+	}
+
+	onSubmitBoard() {
+		var max = 0;
+		for (var x of this.boards) {
+			if (x.boardcode > max){
+				max = x.boardcode;
+			}
+		}
+		max = max + 1;
+
+		let formObj = this.boardForm.getRawValue();
+		formObj.code = max;
+
+		console.log(formObj)
+		this.data.addBoard(formObj);
 	}
 
 }

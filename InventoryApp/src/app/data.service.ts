@@ -12,6 +12,7 @@ export class DataService {
   gotBoardInventory: EventEmitter<any> = new EventEmitter();
   gotJobs: EventEmitter<any> = new EventEmitter();
   gotBoms: EventEmitter<any> = new EventEmitter();
+  gotAssemblers: EventEmitter<any> = new EventEmitter();
 	public components = ['1'];
 	public componentInventory = [];
   public manufacturers = [];
@@ -19,6 +20,7 @@ export class DataService {
   public boardInventory = [];
   public jobs = [];
   public boms = [];
+  public assemblers = [];
 
   	constructor(private dataGrab : DataRetrieveService) { 
   	}
@@ -32,6 +34,13 @@ export class DataService {
   		} )
   	}
 
+    addComponent(json) {
+      this.dataGrab.addComponent(json)
+      .subscribe( (data: any) => {
+        this.getComponents();
+      })
+    }
+
 
     getComponentInventory() {
       this.dataGrab.getComponentInventory()
@@ -40,6 +49,13 @@ export class DataService {
         console.log(this.componentInventory);
         this.gotComponentInventory.emit("done");
       } )
+    }
+
+    addComponentInventory(json) {
+      this.dataGrab.addComponentInventory(json)
+      .subscribe( (data: any) => {
+        this.getComponentInventory();
+      })
     }
 
     deleteComponent(id: number){
@@ -76,12 +92,28 @@ export class DataService {
       } )
     }
 
+    addBoard(json) {
+      this.dataGrab.addBoard(json)
+      .subscribe( (data: any) => {
+        this.getBoards();
+        this.gotBoards.emit("done");
+      } )
+    }
+
     getBoardInventory(){
       this.dataGrab.getBoardInventory()
       .subscribe( (data: any) => {
         this.boardInventory = data;
         console.log(this.boardInventory);
         this.gotBoardInventory.emit("done");
+      } )
+    }
+
+    addboardInventory(json){
+      this.dataGrab.addBoardInventory(json)
+      .subscribe( (data: any) => {
+        this.getBoardInventory();
+        this.gotBoards.emit("done");
       } )
     }
 
@@ -100,6 +132,15 @@ export class DataService {
         this.boms = data;
         console.log(this.boms);
         this.gotBoms.emit("done");
+      })
+    }
+
+    getAssemblers(){
+      this.dataGrab.getAssemblers()
+      .subscribe( (data: any) => {
+        this.assemblers = data;
+        console.log(this.assemblers);
+        this.gotAssemblers.emit("done");
       })
     }
 

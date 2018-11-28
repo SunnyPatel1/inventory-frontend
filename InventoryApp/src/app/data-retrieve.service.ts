@@ -14,8 +14,16 @@ export class DataRetrieveService {
   	return this.http.get('http://localhost:3000/components/');
   }
 
+  addComponent(json) {
+    return this.http.post('http://localhost:3000/components/', json);
+  }
+
   getComponentInventory() {
   	return this.http.get('http://localhost:3000/componentInventory/');
+  }
+
+  addComponentInventory(json) {
+    return this.http.post('http://localhost:3000/componentInventory/', json);
   }
 
   deleteComponent(id) {
@@ -27,30 +35,42 @@ export class DataRetrieveService {
   }
 
   getManufacturers() {
-  	return this.http.get('http://localhost:3000/manufacturer/')
+  	return this.http.get('http://localhost:3000/manufacturer/');
   }
 
   getBoards() {
-  	return this.http.get('http://localhost:3000/boards/')
+  	return this.http.get('http://localhost:3000/boards/');
+  }
+
+  addBoard(json) {
+    return this.http.post('http://localhost:3000/boards/', json);
   }
 
   getBoardInventory() {
-  	return this.http.get('http://localhost:3000/boardInventory')
+  	return this.http.get('http://localhost:3000/boardInventory');
+  }
+
+  addBoardInventory(json) {
+    return this.http.post('http://localhost:3000/boardInventory/', json);
   }
 
   getJobs() {
-  	return this.http.get('http://localhost:3000/buildJobs/')
+  	return this.http.get('http://localhost:3000/buildJobs/');
   }
 
   startJob(json) {
-  	return this.http.request('post','http://localhost:3000/sendOut/', {body : json} )
+  	return this.http.request('post','http://localhost:3000/sendOut/', {body : json} );
   }
 
   finishJob(json) {
-  	return this.http.request('put', 'http://localhost:3000/logReturn/', {body : json} )
+  	return this.http.request('put', 'http://localhost:3000/logReturn/', {body : json} );
   }
 
   getBoms() {
     return this.http.get('http://localhost:3000/bom');
+  }
+
+  getAssemblers() {
+    return this.http.get('http://localhost:3000/assembler')
   }
 }

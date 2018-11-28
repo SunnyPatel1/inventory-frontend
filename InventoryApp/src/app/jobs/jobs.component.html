@@ -1,0 +1,78 @@
+<div class="component-wrapper">
+	<h2><strong>Build Jobs</strong></h2>
+	<mat-tab-group mat-align-tabs="center" dynamicHeight="true">
+		<mat-tab label="View Boards">
+			<div class="componentInfoWrapper">
+				<table class="table" table-align="center">
+					<tr>
+						<th>Job ID</th>
+						<th>Company ID</th>
+						<th>BoardCode</th>
+						<th>Quantity Sent</th>
+						<th>Date Sent</th>
+						<th>Date Returned</th>
+						<th>Quantity Returned</th>
+						<th></th>
+					</tr>
+
+					<tr *ngFor = "let j of jobs">
+						<td>{{j.jobid}}</td>
+						<td>{{j.companyid}}</td>
+						<td>{{j.boardcode}}</td>
+						<td>{{j.quantitysent}}</td>
+						<td>{{j.datesent.substring(0,10)}}</td>
+						<td>{{j.datereturned != null ? j.datereturned.substring(0,10) : "pending"}}</td>
+						<td>{{j.quantityreturned}}</td>
+						<td>
+							<button *ngIf="j.datereturned == null" mat-button (click)="logReturn(j.jobid)">
+								Log Return
+							</button>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</mat-tab>
+		<mat-tab label="New Job">
+			<form [formGroup] = "newJobForm" (ngSubmit)="createJob()" class="jobForm">
+				<mat-form-field class="example-full-width">
+					<input matInput  placeholder="Assembly Company" type="text" formControlName="compid"/> 
+				</mat-form-field>
+
+				<mat-form-field class="example-full-width"> 
+					<input matInput  placeholder="Quantity Sent" type="number" formControlName="qsent"/>
+				</mat-form-field>
+
+				<mat-form-field class="example-full-width">
+					<mat-select placeholder="Board Type" formControlName="bcode">
+						<mat-option *ngFor="let b of boards" [value]="b.boardcode">
+							{{b.description}}
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+
+				<button mat-button type="submit">Submit</button>
+				
+			</form>
+		</mat-tab>
+	</mat-tab-group>
+</div>
+
+
+<div class="modal-custom" *ngIf="showModal">
+	<mat-icon (click)="showModal = !showModal" class="closeRight">close</mat-icon>
+	<h2><strong> Log the returned components </strong></h2>
+	<form [formGroup] = "returnForm" (ngSubmit)="finishJob()" class="jobForm">
+		<mat-form-field class="example-full-width">
+			<input matInput  placeholder="Quantity Returned" type="text" formControlName="qret"/> 
+		</mat-form-field>
+
+		<mat-form-field class="example-full-width"> 
+			<input matInput  placeholder="Initial Serial Number" type="number" formControlName="sn"/>
+		</mat-form-field>
+
+		<button mat-button type="submit">Submit</button>
+	</form>
+</div>
+
+
+

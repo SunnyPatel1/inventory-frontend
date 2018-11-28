@@ -1,0 +1,109 @@
+<div class="second-header">
+	<h2> Components and Inventory</h2>
+</div>
+
+<div class="component-wrapper">
+	<h2><strong>Components</strong></h2>
+	<mat-tab-group mat-align-tabs="center" dynamicHeight="true">
+	  <mat-tab label="Review Components">
+	  	<div class="componentInfoWrapper">
+			<table class="table" table-align="center">
+				<tr>
+					<th>Component ID</th>
+					<th>Name</th>
+					<th>MSL</th>
+					<th>Unit Cost</th>
+					<th>Manufacturer ID</th>
+					<th>Amount</th>
+					<th></th>
+				</tr>
+
+				<tr *ngFor = "let component of components">
+					<td>{{component.componentid}}</td>
+					<td>{{component.componentname}}</td>
+					<td>{{component.msl}}</td>
+					<td>{{component.unitcost}}</td>
+					<td>{{component.manufacturerid}}</td>
+					<td>{{component.amount}}</td>
+					<td><button mat-button (click)="deleteComponent(component.componentid)">Delete</button></td>
+				</tr>
+			</table>
+		</div>	
+	  </mat-tab>
+	  <mat-tab label="Register New">
+	  	<form [formGroup] = "componentForm" (ngSubmit)="onSubmitComponent()" class="componentForm">
+	  		<mat-form-field class="example-full-width">
+				<input matInput  placeholder="Component Name" type="text" formControlName="name"/> 
+			</mat-form-field>
+
+			<mat-form-field class="example-full-width"> 
+				<input matInput  placeholder="MSL" type="number" formControlName="msl"/>
+			</mat-form-field>
+
+			<mat-form-field class="example-full-width">
+				<input matInput  placeholder="Unit Cost" type="number" formControlName="unitcost"/>
+			</mat-form-field>
+
+			<mat-form-field class="example-full-width">
+				<mat-select placeholder="Manufacturer" formControlName="mid">
+					<mat-option *ngFor="let m of manufacturers" [value]="m.manufacturerid">
+						{{m.name}}
+					</mat-option>
+				</mat-select>
+			</mat-form-field>
+
+			<mat-form-field class="example-full-width">
+				<input matInput  placeholder="Amount" type="number"  formControlName="amt"/>
+			</mat-form-field>
+			<button mat-button type="submit">Submit</button>
+		</form>
+	  </mat-tab>
+	</mat-tab-group>
+</div>
+
+
+
+<div class="component-wrapper">
+	<h2><strong>Component Inventory</strong></h2>
+	<mat-tab-group mat-align-tabs="center">
+		<mat-tab label="Review Components">
+			<div class="componentInfoWrapper">
+				<table class="table">
+					<tr>
+						<th>Component Code</th>
+						<th>Component ID</th>
+						<th>Amount</th>
+						<th></th>
+					</tr>
+
+					<tr *ngFor = "let stock of componentInventory">
+						<td>{{stock.componentcode}}</td>
+						<td>{{stock.componentid}}</td>
+						<td>{{stock.amount}}</td>
+						<td><button mat-button (click)="deleteComponentInventory(stock.componentcode, stock.componentid)">Delete</button></td>
+					</tr>
+				</table>
+			</div>
+		</mat-tab>
+		<mat-tab label="Add Stock">
+			<form [formGroup] = "inventoryForm" (ngSubmit)="onSubmitInventory()" class="componentForm">
+				<mat-form-field class="example-full-width">
+					<input matInput placeholder="Component Code" type="text" formControlName="code"/>
+				</mat-form-field>
+				<mat-form-field class="example-full-width">
+					<mat-select placeholder="Component Type" formControlName="cid">
+						<mat-option *ngFor="let c of components" [value]="c.componentid">
+							{{c.componentname}}
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+				<mat-form-field class="example-full-width">
+					<input placeholder="amount" matInput type="number" formControlName="amt"/>
+				</mat-form-field>
+				
+				<button type="submit">Submit</button>
+			</form>
+		</mat-tab>
+		<mat-tab label="Third">Content 3</mat-tab>
+	</mat-tab-group>
+</div>

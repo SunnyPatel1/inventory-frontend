@@ -1,0 +1,34 @@
+.icon {
+  padding: 0 14px;
+  height:40px;
+  float:right;
+  margin:10px;
+}
+
+
+
+.toolbar {
+	background-color:#3f51b5;
+	color:white;
+	position:fixed;
+	height:65px;
+	width:100vw;
+	z-index:100;
+	top:0;
+	box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+}
+
+.toolbar > span {
+	line-height:65px;
+	vertical-align:center;
+	padding:0.25rem;
+	margin-left:0.25rem;
+}
+
+span.logo {
+	font-size:18pt;
+	font-weight:bold;
+}
+span.small {
+	font-size:12pt;
+}
