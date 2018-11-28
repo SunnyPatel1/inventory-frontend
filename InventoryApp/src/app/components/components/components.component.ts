@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../data.service';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-components',
@@ -11,8 +11,19 @@ export class ComponentsComponent implements OnInit {
 	private components = [];
 	private componentInventory = [];
 	private manufacturers = [];
-	componentForm = new FormControl('');
-	inventoryForm = new FormControl('');
+	componentForm = new FormGroup({
+		name: new FormControl(''),
+		msl: new FormControl(''),
+		unitcost: new FormControl(''),
+		mid: new FormControl(''),
+		amt: new FormControl('')
+	})
+
+	inventoryForm = new FormGroup({
+		code: new FormControl(''),
+		cid: new FormControl(''),
+		amt: new FormControl(''),
+	})
 
 	constructor(private data: DataService) {
 		this.data.getComponents();
@@ -35,6 +46,14 @@ export class ComponentsComponent implements OnInit {
 		var json = {"code" : code, "cid" : id};
 		console.log(json);
 		this.data.deleteComponentInventory(json);
+	}
+
+	onSubmitComponent() {
+		console.log(this.componentForm.value);
+	}
+
+	onSubmitInventory() {
+		console.log(this.inventoryForm.value);
 	}
 
 }

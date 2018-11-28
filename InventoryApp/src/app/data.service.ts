@@ -11,12 +11,14 @@ export class DataService {
   gotBoards: EventEmitter<any> = new EventEmitter();
   gotBoardInventory: EventEmitter<any> = new EventEmitter();
   gotJobs: EventEmitter<any> = new EventEmitter();
+  gotBoms: EventEmitter<any> = new EventEmitter();
 	public components = ['1'];
 	public componentInventory = [];
   public manufacturers = [];
   public boards = [];
   public boardInventory = [];
   public jobs = [];
+  public boms = [];
 
   	constructor(private dataGrab : DataRetrieveService) { 
   	}
@@ -90,6 +92,15 @@ export class DataService {
         console.log(this.jobs);
         this.gotJobs.emit("done");
       } )
+    }
+
+    getBoms(){
+      this.dataGrab.getBoms()
+      .subscribe( (data: any) => {
+        this.boms = data;
+        console.log(this.boms);
+        this.gotBoms.emit("done");
+      })
     }
 
 

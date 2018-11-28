@@ -49,4 +49,8 @@ export class DataRetrieveService {
   finishJob(json) {
   	return this.http.request('put', 'http://localhost:3000/logReturn/', {body : json} )
   }
+
+  getBoms() {
+    return this.http.get('http://localhost:3000/bom');
+  }
 }

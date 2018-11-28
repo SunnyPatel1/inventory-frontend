@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../data.service';
 
 @Component({
   selector: 'app-boms',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./boms.component.css']
 })
 export class BomsComponent implements OnInit {
+	private boms = [];
 
-  constructor() { }
+	constructor(private data : DataService) {
+		this.data.getBoms();
+		this.data.gotBoms.subscribe(c => this.boms = this.data.boms);
+	}
 
-  ngOnInit() {
-  }
+	ngOnInit() {
+	}
 
 }

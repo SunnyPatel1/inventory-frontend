@@ -1,3 +1,19 @@
-<p>
-  boms works!
-</p>
+{{boms.length}}
+<h2><strong>Bill Of Materials</strong></h2>
+<div class="componentInfoWrapper">
+	<table class="table">
+		<tr>
+			<th>Board Code</th>
+			<th>Component ID</th>
+			<th>Quantity</th>
+			<th></th>
+		</tr>
+
+		<tr *ngFor = "let b of boms">
+			<td>{{b.boardcode}}</td>
+			<td>{{b.componentid}}</td>
+			<td>{{b.quantity}}</td>
+			<td><button (click)="deleteComponent(component.componentid)">Delete</button></td>
+		</tr>
+	</table>
+</div>

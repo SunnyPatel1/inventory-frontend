@@ -43,21 +43,23 @@
 	</table>
 </div>
 <h2><strong>Register A New Component</strong></h2>
-<form>
-	Component Name: <input type="text" /> <br />
-	MSL: <input type="number" /><br />
-	Unit Cost: <input type="number" /><br />
-	Manufacturer: <select>
+<form [formGroup] = "componentForm" (ngSubmit)="onSubmitComponent()">
+	Component Name: <input type="text" formControlName="name"/> <br />
+	MSL: <input type="number" formControlName="msl"/><br />
+	Unit Cost: <input type="number" formControlName="unitcost"/><br />
+	Manufacturer: <select formControlName="mid">
 		<option *ngFor="let m of manufacturers" [value]="m.manufacturerid">{{m.name}}</option>
 	</select><br />
-	Amount: <input type="number" /><br />
+	Amount: <input type="number"  formControlName="amt"/><br />
+	<button type="submit">Submit</button>
 </form><br />
 
 <h2><strong> Add Component Stock </strong></h2>
-<form>
-	Component Code: <input type="text"/><br />
-	Component Type: <select>
+<form [formGroup] = "inventoryForm" (ngSubmit)="onSubmitInventory()">
+	Component ID: <input type="text" formControlName="code"/><br />/>
+	Component Type: <select formControlName="cid" />
 		<option *ngFor="let c of components" [value]="c.componentid">{{c.componentname}}</option><br />
 	</select>
-	Amount: <input type="number"/>
+	Amount: <input type="number" formControlName="amt"/>
+	<button type="submit">Submit</button>
 </form>
