@@ -24,6 +24,6 @@ FIRST LAUNCH THE BACKEND. please see http://github.com/SunnyPatel1/Inventory-bac
 
 ## NOTE
 
-http://github.com/SunnyPatel1/Inventory-frontend  
+http://github.com/SunnyPatel1/Inventory-backend
 
 And read instructions there!
