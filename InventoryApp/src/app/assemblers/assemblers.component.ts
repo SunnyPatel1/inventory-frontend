@@ -8,7 +8,7 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./assemblers.component.css']
 })
 export class AssemblersComponent implements OnInit {
-	private assemblers = [];
+	public assemblers = [];
 	assForm = new FormGroup({
 		name: new FormControl(''),
 		phone: new FormControl(''),

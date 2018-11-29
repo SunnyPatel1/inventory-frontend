@@ -32,5 +32,20 @@
 				</table>
 			</div>
 		</mat-tab>
+		<mat-tab label="Expensive Inventory">
+			<div class="componentInfoWrapper">
+				<table class="table" table-align="center">
+					<tr>
+						<th>Name</th>
+						<th>Cost Per board>
+					</tr>
+
+					<tr *ngFor = "let d of costlyboards">
+						<td>{{d.description}}</td>
+						<td>{{d.costperboard}}
+					</tr>
+				</table>
+			</div>
+		</mat-tab>
 	</mat-tab-group>
 </div>

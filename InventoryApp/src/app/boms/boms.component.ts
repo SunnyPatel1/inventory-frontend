@@ -7,7 +7,7 @@ import { DataService } from '../data.service';
   styleUrls: ['./boms.component.css']
 })
 export class BomsComponent implements OnInit {
-	private boms = [];
+	public boms = [];
 
 	constructor(private data : DataService) {
 		this.data.getBoms();

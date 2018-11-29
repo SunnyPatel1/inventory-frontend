@@ -9,8 +9,8 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./boards.component.css']
 })
 export class BoardsComponent implements OnInit {
-	private boards = [];
-	private boardInventory = [];
+	public boards = [];
+	public boardInventory = [];
 	boardForm = new FormGroup({
 		desc: new FormControl(''),
 		cost: new FormControl('')

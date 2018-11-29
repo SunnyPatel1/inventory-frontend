@@ -8,9 +8,9 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./components.component.css']
 })
 export class ComponentsComponent implements OnInit {
-	private components = [];
-	private componentInventory = [];
-	private manufacturers = [];
+	public components = [];
+	public componentInventory = [];
+	public manufacturers = [];
 	componentForm = new FormGroup({
 		name: new FormControl(''),
 		msl: new FormControl(''),

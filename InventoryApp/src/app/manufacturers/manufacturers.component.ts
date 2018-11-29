@@ -8,7 +8,7 @@ import { FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./manufacturers.component.css']
 })
 export class ManufacturersComponent implements OnInit {
-	private manufacturers = [];
+	manufacturers = [];
 	manuForm = new FormGroup({
 		name: new FormControl(''),
 		phone: new FormControl(''),

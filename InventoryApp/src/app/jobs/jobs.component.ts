@@ -8,11 +8,11 @@ import { FormArray, FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./jobs.component.css']
 })
 export class JobsComponent implements OnInit {
-	private jobs = [];
-	private boards = [];
-	private showModal = false;
-	private returnId = null;
-	private trial = [];
+	jobs = [];
+	boards = [];
+	showModal = false;
+	returnId = null;
+	trial = [];
 	newJobForm = new FormGroup({
 		compid: new FormControl(''),
 		qsent: new FormControl(''),
