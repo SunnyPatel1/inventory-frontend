@@ -7,13 +7,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
-
-
-
-
-
-
-
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -25,15 +19,15 @@ import { ComponentsComponent } from './components/components.component';
 import { BoardsComponent } from './boards/boards.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { BomsComponent } from './boms/boms.component';
-import { HomeComponent } from './home/home.component';
-import { LowInventoryComponent } from './home/low-inventory/low-inventory.component';
-import { UnreturnedComponent } from './home/unreturned/unreturned.component';
+import { HomeComponent } from './home/home.component';import { UnreturnedComponent } from './home/unreturned/unreturned.component';
 
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ManufacturersComponent } from './manufacturers/manufacturers.component';
 import { AssemblersComponent } from './assemblers/assemblers.component';
 import { HeaderComponent } from './general/header/header.component';
+import { ComponentOverviewComponent } from './home/component-overview/component-overview.component';
+import { ActiveManufacturersComponent } from './home/active-manufacturers/active-manufacturers.component';
 
 const appRoutes:Routes = [
   {path: '', component: HomeComponent },
@@ -52,11 +46,12 @@ const appRoutes:Routes = [
     JobsComponent,
     BomsComponent,
     HomeComponent,
-    LowInventoryComponent,
     UnreturnedComponent,
     ManufacturersComponent,
     AssemblersComponent,
-    HeaderComponent
+    HeaderComponent,
+    ComponentOverviewComponent,
+    ActiveManufacturersComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +68,8 @@ const appRoutes:Routes = [
     MatSelectModule,
     MatInputModule,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

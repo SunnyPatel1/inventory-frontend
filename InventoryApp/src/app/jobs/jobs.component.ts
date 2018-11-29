@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormArray, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-jobs',
@@ -12,15 +12,19 @@ export class JobsComponent implements OnInit {
 	private boards = [];
 	private showModal = false;
 	private returnId = null;
+	private trial = [];
 	newJobForm = new FormGroup({
 		compid: new FormControl(''),
 		qsent: new FormControl(''),
 		bcode: new FormControl(''),
 	})
-	returnForm = new FormGroup({
-		qret: new FormControl(''),
-		sn: new FormControl('')
-	})
+
+	qret = new FormControl('');
+
+	
+
+	
+
 	constructor(private data: DataService) {
 		this.data.getJobs();
 		this.data.getBoards();
@@ -55,6 +59,19 @@ export class JobsComponent implements OnInit {
 
 	finishJob() {
 		
+	}
+
+	enterNum(){
+		for (var x = 0; x < this.qret.value; x++){
+			console.log(x)
+			this.trial.push(x)
+		}
+
+		
+	}
+
+	retJob() {
+
 	}
 
 }

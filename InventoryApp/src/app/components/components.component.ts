@@ -51,7 +51,7 @@ export class ComponentsComponent implements OnInit {
 	onSubmitComponent() {
 		var max = 0;
 		for (let x of this.components){
-			if (x.componentid <= max) {
+			if (x.componentid >= max) {
 				max = x.componentid
 			}
 		}

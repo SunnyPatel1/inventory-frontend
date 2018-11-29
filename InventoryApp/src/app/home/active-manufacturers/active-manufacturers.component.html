@@ -1,0 +1,17 @@
+<div class="component-wrapper">
+	<h2><strong>Active Manufacturers</strong></h2>
+	<div class="componentInfoWrapper">
+			<table class="table" table-align="center">
+				<tr>
+					<th>Component ID</th>
+					<th>Component Name</th>
+				</tr>
+
+				<tr *ngFor = "let m of activeManu">
+					<td>{{m.name}}</td>
+					<td>{{m.componentname}}</td>
+				</tr>
+			</table>
+		</div>
+
+</div>

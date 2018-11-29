@@ -1,5 +1,8 @@
+<div class="second-header">
+	<h2> Assembly Companies</h2>
+</div>
 <div class="component-wrapper">
-	<h2><strong>Boards</strong></h2>
+	<h2><strong>Assembly Companies</strong></h2>
 	<mat-tab-group mat-align-tabs="center" dynamicHeight="true">
 		<mat-tab label="Review Companies">
 			<div class="componentInfoWrapper">
@@ -21,7 +24,7 @@
 			</div>
 		</mat-tab>
 		<mat-tab label="Add New Assembly Company">
-			<form [formGroup]="assForm" (ngSubmit)="newManufacturer()" class="assForm">
+			<form [formGroup]="assForm" (ngSubmit)="newAss()" class="assForm">
 				<mat-form-field class="example-full-width">
 					<input matInput placeholder=" Name" type="text" formControlName="name"/>
 				</mat-form-field>

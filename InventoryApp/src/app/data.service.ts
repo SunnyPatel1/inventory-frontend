@@ -13,6 +13,8 @@ export class DataService {
   gotJobs: EventEmitter<any> = new EventEmitter();
   gotBoms: EventEmitter<any> = new EventEmitter();
   gotAssemblers: EventEmitter<any> = new EventEmitter();
+  finished1: EventEmitter<any> = new EventEmitter();
+  finished2: EventEmitter<any> = new EventEmitter();
 	public components = ['1'];
 	public componentInventory = [];
   public manufacturers = [];
@@ -83,6 +85,13 @@ export class DataService {
       } )
     }
 
+    newManufacturer(json){
+      this.dataGrab.newManufacturer(json)
+      .subscribe( (data: any)=> {
+        this.getManufacturers();
+      })
+    }
+
     getBoards(){
       this.dataGrab.getBoards()
       .subscribe( (data: any) => {
@@ -142,6 +151,21 @@ export class DataService {
         console.log(this.assemblers);
         this.gotAssemblers.emit("done");
       })
+    }
+
+    newAss(json) {
+      this.dataGrab.newAss(json)
+      .subscribe( (data: any) => {
+        this.getAssemblers();
+      })
+    }
+
+    finishedOne(){
+      this.finished1.emit("done");
+    }
+
+    finishedTwo(){
+      this.finished2.emit("done");
     }
 
 

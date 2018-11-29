@@ -27,7 +27,7 @@ div.component-wrapper > h2 {
 	text-align:center;
 }
 
-.jobForm {
+.jobForm, .returnForm {
   min-width: 150px;
   max-width: 500px;
   width: 100%;

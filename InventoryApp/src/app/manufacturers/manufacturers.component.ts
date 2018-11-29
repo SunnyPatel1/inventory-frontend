@@ -26,7 +26,20 @@ export class ManufacturersComponent implements OnInit {
 
 
 	newManufacturer(){
+		var max = 0;
 
+		for (let x of this.manufacturers){
+			if (x.manufacturerid > max){
+				max = x.manufacturerid;
+			}
+		}
+		max = max + 1;
+
+		let formObj = this.manuForm.getRawValue();
+		formObj.id = max;
+
+		this.data.newManufacturer(formObj);
+		this.data.gotManufacturers.subscribe( c => this.manufacturers = this.data.manufacturers);
 	}
 
 }

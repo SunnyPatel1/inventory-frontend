@@ -38,6 +38,11 @@ export class DataRetrieveService {
   	return this.http.get('http://localhost:3000/manufacturer/');
   }
 
+  newManufacturer(json) {
+    console.log(json);
+    return this.http.post('http://localhost:3000/manufacturer/', json)
+  }
+
   getBoards() {
   	return this.http.get('http://localhost:3000/boards/');
   }
@@ -71,6 +76,13 @@ export class DataRetrieveService {
   }
 
   getAssemblers() {
-    return this.http.get('http://localhost:3000/assembler')
+    return this.http.get('http://localhost:3000/assembler/')
   }
+
+  newAss(json) {
+    console.log(json);
+    return this.http.post('http://localhost:3000/assembler/',json)
+  }
+
+
 }

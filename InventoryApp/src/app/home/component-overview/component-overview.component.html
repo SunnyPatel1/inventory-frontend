@@ -1,0 +1,70 @@
+<div class="component-wrapper">
+	<h2><strong>Parts Overview</strong></h2>
+	<mat-tab-group mat-align-tabs="center" dynamicHeight="true">
+	  <mat-tab label="Running Low">
+	  	<div class="componentInfoWrapper">
+			<table class="table" table-align="center">
+				<tr>
+					<th>Component Name</th>
+				</tr>
+
+				<tr *ngFor = "let i of lowInventory">
+					<td>{{i.componentname}}</td>
+				</tr>
+			</table>
+		</div>	
+	</mat-tab>
+	<mat-tab label="Available">
+		<div class="componentInfoWrapper">
+			<table class="table" table-align="center">
+				<tr>
+					<th>Component Name</th>
+					<th>Amount</th>
+				</tr>
+
+				<tr *ngFor = "let a of availableInventory">
+					<td>{{a.componentname}}</td>
+					<td>{{a.amount}}</td>
+				</tr>
+			</table>
+		</div>
+	</mat-tab>
+	<mat-tab label="Stock Check">
+		<div class="componentInfoWrapper">
+			<table class="table" table-align="center">
+				<tr>
+					<th>Component Name</th>
+					<th>Amount</th>
+				</tr>
+
+				<tr *ngFor = "let s of stockCheck">
+					<td>{{s.componentname}}</td>
+					<td>{{s.amount}}</td>
+				</tr>
+			</table>
+		</div>
+	</mat-tab>
+	<mat-tab label="Detailed Components">
+		<div class="componentInfoWrapper">
+			<table class="table" table-align="center">
+				<tr>
+					<th>Name</th>
+					<th>Manufacturer ID</th>
+					<th>Component ID</th>
+					<th>Component Code</th>
+					<th>Number of reels</th>
+					<th>Number of Components</th>
+				</tr>
+
+				<tr *ngFor = "let d of detailedComponents">
+					<td>{{d.name}}</td>
+					<td>{{d.manufacturerid}}</td>
+					<td>{{d.componentid}}</td>
+					<td>{{d.componentcode}}</td>
+					<td>{{d.numreels}}</td>
+					<td>{{d.numcomponents}}</td>
+				</tr>
+			</table>
+		</div>
+	</mat-tab>
+</mat-tab-group>

@@ -18,11 +18,12 @@
 	box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
 }
 
-.toolbar > span {
+.toolbar > a, .toolbar > a > span {
 	line-height:65px;
 	vertical-align:center;
 	padding:0.25rem;
 	margin-left:0.25rem;
+	color:white;
 }
 
 span.logo {
@@ -31,4 +32,19 @@ span.logo {
 }
 span.small {
 	font-size:12pt;
+}
+
+.toolbar > a.navLink {
+	color:white;
+	margin:10px;
+	cursor:pointer;
+}
+
+.toolbar > a.navLink:hover {
+	text-decoration: none;
+	font-weight:bold;
+}
+
+.toolbar > a:hover {
+	color:white;
 }
