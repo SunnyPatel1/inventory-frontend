@@ -19,24 +19,24 @@ export class UnreturnedComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.data.finished1.subscribe( c => {
-			this.http.get('http://localhost:3000/views/unreturned/').subscribe
+			this.http.get('http://localhost:3000/api/views/unreturned/').subscribe
 			( (data: any) => {
 				this.unreturnedJobs = data;
 			});
-			this.http.get('http://localhost:3000/views/costlyboards/').subscribe
+			this.http.get('http://localhost:3000/api/views/costlyboards/').subscribe
 				( (data: any) => {
 					this.costlyboards = data;
 			})
-			this.http.get('http://localhost:3000/views/mostExpensiveBoard/').subscribe
+			this.http.get('http://localhost:3000/api/views/mostExpensiveBoard/').subscribe
 				( (data: any) => {
 					this.mostExpensive = data;
 			})
-			this.http.get('http://localhost:3000/views/numExpensiveBoards').subscribe
+			this.http.get('http://localhost:3000/api/views/numExpensiveBoards').subscribe
 				( (data: any) => {
 					this.numExpensiveBoards = data;
 					this.data.finishedTwo();
 			})
-			this.http.get('http://localhost:3000/views/boardsFromAsus').subscribe
+			this.http.get('http://localhost:3000/api/views/boardsFromAsus').subscribe
 				( (data: any) => {
 					this.byManu = data;
 					this.data.finishedTwo();

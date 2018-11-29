@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, OnInit } from '@angular/core'; // Get component decorators, and onInit interface
+import { DataService } from '../data.service'; // Get data storage wrapper service 
+import { FormControl, FormGroup } from '@angular/forms'; // Get form manipulation modules
 
 @Component({
   selector: 'app-assemblers',

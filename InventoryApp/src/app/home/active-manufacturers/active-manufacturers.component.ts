@@ -15,7 +15,7 @@ export class ActiveManufacturersComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.data.finished2.subscribe( c => {
-			this.http.get('http://localhost:3000/views/currentManufacturers/').subscribe
+			this.http.get('http://localhost:3000/api/views/currentManufacturers/').subscribe
 			( (data: any) => {
 				this.activeManu = data;
 			});

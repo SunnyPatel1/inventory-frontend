@@ -18,19 +18,19 @@ export class ComponentOverviewComponent implements OnInit {
 		private data: DataService) { }
 
 	ngOnInit() {
-		this.http.get('http://localhost:3000/views/componentDetailed/').subscribe
+		this.http.get('http://localhost:3000/api/views/componentDetailed/').subscribe
 			( (data: any) => {
 				this.detailedComponents = data;
 			})
-		this.http.get('http://localhost:3000/views/lowInventory/').subscribe
+		this.http.get('http://localhost:3000/api/views/lowInventory/').subscribe
 			( (data: any) => {
 				this.lowInventory = data;
 			})
-		this.http.get('http://localhost:3000/views/stockCheck/').subscribe
+		this.http.get('http://localhost:3000/api/views/stockCheck/').subscribe
 			( (data: any) => {
 				this.stockCheck = data;
 			})
-		this.http.get('http://localhost:3000/views/availableInventory').subscribe
+		this.http.get('http://localhost:3000/api/views/availableInventory').subscribe
 			( (data: any) => {
 				this.availableInventory = data;
 				this.data.finishedOne()
